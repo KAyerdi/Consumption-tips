@@ -6,9 +6,18 @@ export default function useOrder() {
   const [order, setOrder] = useState<OrderItem[]>([])
   
   const addItem = (item : MenuItem) => {
-    console.log(item)
+    
+    const itemExist = order.find(orderItem => orderItem.id === item.id)
+    if(itemExist){
+        console.log('Ya existe...')
+    } else {
+      const newItem = {...item, quantity: 1}
+      setOrder([...order, newItem])
+    }
   }
   
+  console.log(order)
+
   return {
     addItem
   }
