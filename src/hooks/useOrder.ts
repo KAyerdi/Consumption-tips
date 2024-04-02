@@ -18,9 +18,13 @@ export default function useOrder() {
     }
   }
   
+  const removeItem = (id: MenuItem['id']) => {
+    console.log('Eliminando', id)
+  }
 
   return {
     order,
-    addItem
+    addItem,
+    removeItem
   }
 }
